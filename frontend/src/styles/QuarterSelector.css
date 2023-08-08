@@ -1,0 +1,185 @@
+/* .list {
+  position: relative;
+  top: 125px;
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+}
+
+.list h3 {
+  margin-top: 0;
+  text-align: center;
+  color: white; 
+  font-size: 24px;
+  margin-bottom: 20px;
+  background-color: rgb(31, 31, 132);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.list li:last-child {
+  border-bottom: none;
+}
+
+.list h5 {
+  margin: 0;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  text-align: left;
+  font-weight: bold;
+  color: rgb(31, 31, 132);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.list h5:hover {
+  background-color: #e0e0e0;
+}
+
+.upload-button1,
+.upload-button2,
+.upload-button3,
+.upload-button4{
+  background-color: rgb(31, 31, 132);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  left: 350px;
+  bottom: 10px; */
+
+/* } */
+/* .upload-buttonfirst,
+.upload-buttonsecond,
+.upload-buttonthird,
+.upload-buttonfourth {
+  background-color: rgb(31, 31, 132);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: auto;
+} */
+
+/* Lighter background color for disabled buttons */
+/* .upload-button1:disabled,
+.upload-button2:disabled,
+.upload-button3:disabled,
+.upload-button4:disabled {
+  background-color: rgb(117, 117, 138);
+  cursor: not-allowed;
+} */
+
+/* Center the buttons */
+/* .list h5 button {
+  display: block;
+  margin: 0 auto;
+} */
+.user-list {
+  position: relative;
+  top: 50px;
+  width:800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 20px;
+}
+
+.user-list h3 {
+  margin-top: 0;
+  text-align: center;
+  color: white; 
+  font-size: 24px;
+  margin-bottom: 20px;
+  background-color: rgb(31, 31, 132);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.user-list ul {
+  list-style: none;
+  padding: 0;
+  width: 1200px;
+  margin-left: -200px;
+}
+
+.user-list li {
+  padding: 10px 0; /* Reduced padding */
+  border-bottom: 1px solid #ccc;
+  width: 60%; /* Adjusted width */
+  margin: 0 auto; /* Center the list items horizontally */
+}
+
+.user-list li:last-child {
+  border-bottom: none;
+}
+
+.user-list h5 {
+  margin: 0;
+  padding: 10px;
+  background-color: #f0f0f0;
+  border-radius: 8px;
+  text-align: left;
+  font-weight: bold;
+  color: rgb(31, 31, 132);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 700px; /* Full width */
+}
+
+.user-list h5:hover {
+  background-color: #e0e0e0;
+}
+
+/* Buttons for the user list section */
+.user-list .upload-button1,
+.user-list .upload-button2,
+.user-list .upload-button3,
+.user-list .upload-button4 {
+  background-color: rgb(31, 31, 132);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  left: 50%; /* Adjusted position */
+  transform: translateX(-50%); /* Center the button horizontally */
+  bottom: 10px;
+}
+
+/* Lighter background color for disabled buttons in the user list section */
+.user-list .upload-button1:disabled,
+.user-list .upload-button2:disabled,
+.user-list .upload-button3:disabled,
+.user-list .upload-button4:disabled {
+  background-color: rgb(117, 117, 138);
+  cursor: not-allowed;
+  width: 100px;
+}
+
+/* Center the buttons in the user list section */
+.user-list h5 button {
+  display: block;
+  margin: 0 auto;
+}

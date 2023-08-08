@@ -1,0 +1,214 @@
+body {
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+  }
+  
+  .paform {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80%;
+    height: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .k-form {
+    height: auto;
+  }
+  
+  .paform .k-input {
+    width: 300px;
+  }
+  
+  .patitle {
+    font-size: 24px;
+  
+    font-weight: bold;
+    color: rgb(31, 31, 132);
+    margin-bottom: 2px;
+    text-align: center;
+  }
+  
+  .k-form-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .k-form-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgb(31, 31, 132);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .k-form-buttons button:last-child {
+    margin-left: 10px;
+  }
+  
+  .k-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+    width: 300px;
+    align-items: flex-start;
+    height: auto;
+    max-width: 500px;
+  }
+  
+  .k-input:focus {
+    outline: none;
+    border-color: rgb(31, 31, 132);
+    box-shadow: 0 0 5px rgba(31, 31, 132, 0.5);
+  }
+  
+  .k-input.error {
+    border-color: red;
+  }
+  
+  .k-input.error:focus {
+    border-color: red;
+  }
+  
+  .mydate {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  
+  .todaydate {
+    width: 800px;
+  }
+  
+  .k-dateinput-wrap {
+    flex: 1;
+  }
+  
+  .k-datepicker .k-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    background-color: #fff;
+    width: 100%;
+  }
+  
+  .k-datepicker .k-picker-wrap {
+    margin-left: -10px;
+  }
+  
+  .k-datepicker .k-icon {
+    font-size: 20px;
+    color: #999;
+  }
+  
+  .k-datepicker .k-icon:hover {
+    color: rgb(31, 31, 132);
+    cursor: pointer;
+  }
+  
+  .k-datepicker .k-callout.k-direction-up {
+    border-bottom-color: #fff;
+    background-color: #fff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .k-dateinput-wrap {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .k-datepicker .k-input {
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #333;
+    background-color: #fff;
+    width: 100%;
+    /* height: auto;  */
+    height: 32px;
+  }
+  
+  .k-datepicker .k-picker-wrap {
+    margin-left: -10px;
+  }
+  
+  .k-datepicker .k-icon {
+    font-size: 20px;
+    color: #999;
+  }
+  
+  .k-datepicker .k-icon:hover {
+    color: rgb(31, 31, 132);
+    cursor: pointer;
+  }
+  
+  .mydate {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-right: 10px;
+  }
+  
+  .date-picker-container {
+    display: inline-flex;
+    align-items: flex-start;
+    margin-right: 10px;
+    margin-left: 10px;
+  }
+  
+  .date-picker-container .k-input {
+    width: 250px;
+  }
+  
+  
+  .paform .k-dateinput-wrap .k-input:first-child {
+    width: 250px;
+  }
+  
+  .paform .first-date .k-input {
+    width: 500px;
+  }
+  
+  .texts {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  
+  .custom-input {
+    margin-right: 10px;
+  }
+  
+  .custom-textarea {
+    height: 80px;
+    resize: vertical;
+    width: 500px !important;
+  }
+  
+  .customdate .k-input {
+    width: 700px;
+  }
+  
+  .principalpa-input {
+    width: 500px;
+  }
+  
+  .tdate .k-input {
+    width: 500px;
+  }
