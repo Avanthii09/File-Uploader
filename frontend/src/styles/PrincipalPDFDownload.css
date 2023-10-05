@@ -1,0 +1,65 @@
+/* PrincipalPDFDownload.css */
+
+.pdf-download {
+    position: relative;
+    top: -10px;
+    width:500px;
+    left:20px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+  }
+  
+  .pdf-download h2 {
+    margin-top: 0;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    margin-bottom: 20px;
+    background-color: rgb(31, 31, 132);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .button1,
+  .button2,
+  .button3,
+  .button4 {
+    background-color: rgb(31, 31, 132);
+    color: white;
+    padding: 8px 16px;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    width:200px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .pdf-download button:hover {
+    background-color: #252576;
+  }
+  
+  .pdf-download button:disabled {
+    background-color: rgb(117, 117, 138);
+    cursor: not-allowed;
+  }
+  
+
+  .backtoadminlink {
+  
+      position: relative;
+      margin: 0 auto;
+      top:100px;
+      left:160px;
+      text-decoration: none;
+      font-weight: bold;
+      color: rgb(31, 31, 132);
+    }
+  
+  

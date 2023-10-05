@@ -4,7 +4,7 @@ import { Input } from "@progress/kendo-react-inputs";
 import { Error } from "@progress/kendo-react-labels";
 import "@progress/kendo-theme-material/dist/all.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";  
 import { useNavigate } from "react-router-dom";
 import MyNavBar from "./NavBar";
 
@@ -66,10 +66,15 @@ function MyLogin({ handleLogin}) {
       setLoginError("Invalid email or password");
     }
   };
+  const handleLogout = () => {
+    // Call the handleLogout function passed from props
+    navigate("/");
+    // Additional logic if needed...
+  };
 
   return (
     <div className="login-container">
-      <MyNavBar />
+      <MyNavBar handleLogout={handleLogout} />
       <div className="login-content">
         <div className="form-title">
           <p>LOGIN</p>

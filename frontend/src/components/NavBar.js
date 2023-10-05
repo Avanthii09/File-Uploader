@@ -18,7 +18,9 @@ function MyNavBar() {
 
                     <li>
                         <a className="nav-text" href='https://www.psgtech.edu/'> PSG College Of Technology </a>
+                        <p className="small-text"> COE: QUARTERLY REPORT SUBMISSION PORTAL </p>
                     </li>
+
 
                 </ul>
 
@@ -28,3 +30,4 @@ function MyNavBar() {
 }
 
 export default MyNavBar;
+

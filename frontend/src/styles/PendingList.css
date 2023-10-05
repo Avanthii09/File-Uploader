@@ -1,0 +1,81 @@
+/* Styles for PendingListPage */
+.pending-list-container {
+  width: 43.75rem;
+  height: auto;
+  margin: 0 auto;
+  align-items: center;
+  padding: 1.25rem;
+  background-color: #f5f5f5;
+  border-radius: 0.625rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+}
+
+.pending-list-title {
+  text-align: center;
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+  color: rgb(31, 31, 132);
+}
+
+.pending-users-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pending-users-list li {
+  padding: 0.625rem 0;
+  border-bottom: 0.0625rem solid #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pending-users-list li:last-child {
+  border-bottom: none;
+}
+
+.pending-users-list li span {
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.no-pending-users {
+  font-size: 1.125rem;
+  font-style: italic;
+  color: #888;
+}
+
+.download-button {
+  position: relative;
+  top: 3.125rem;
+  left: 20.625rem;
+  background-color: rgb(31, 31, 132);
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.3125rem;
+  cursor: pointer;
+}
+
+.backlink {
+  position: relative;
+  margin: 0 auto;
+  font-weight: bold;
+  top: 7.5rem;
+  right: 1.875rem;
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: rgb(31, 31, 132);
+
+}
+
+.download {
+  margin-top: 0.625rem;
+  position: relative;
+  top: 1.25rem;
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+}

@@ -1,112 +1,49 @@
-/* .adminlist {
-    position: relative;
-    top: 200px;
-    max-width: 60%;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 20px;
-  } */
-  
-  /* .box2{
-    position: relative;
-    top: -10px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 20px;
-    width: 800px;
-    height: 230px;
-  }
+.admin-list {
+  position: relative;
+  top: -1.25rem; /* -20px */
+  width: 50rem; /* 800px */
+  margin: 0 auto;
+  padding: 1.25rem; /* 20px */
+  background-color: #f9f9f9;
+  border-radius: 0.625rem; /* 10px */
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.1);
+  font-size: 1.25rem; /* 20px */
+}
 
-  .adminlist ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .adminlist li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ccc;
-  }
+.admin-list h4 {
+  margin-top: 0;
+  text-align: center;
+  color: white;
+  font-size: 1.5rem; /* 24px */
+  margin-bottom: 1.25rem; /* 20px */
+  background-color: rgb(31, 31, 132);
+  padding: 0.625rem; /* 10px */
+  border-radius: 0.625rem;
+}
 
-  .adminlist h4 {
-    margin-top: 0;
-    text-align: center;
-    color: white; 
-    font-size: 24px;
-    margin-bottom: 20px;
-    background-color: rgb(31, 31, 132);
-    padding: 10px;
-    border-radius: 10px;
-  }
-  
-  .adminlist h5 {
-    margin: 0;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-radius: 8px;
-    text-align: left;
-    font-weight: bold;
-    font-size: 18px;
-    color: rgb(31, 31, 132);
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
+.admin-list ul {
+  list-style: none;
+  padding: 0;
+}
 
-  .adminlist a {
-    text-decoration: none;
-  } */
+.admin-list li {
+  padding: 0.625rem 0; /* 10px */
+  border-bottom: 0.0625rem solid #ccc; /* 1px */
+}
 
-  .admin-list {
-    position: relative;
-    top: -20px;
-    width:800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 20px;
-  }
-  
-  .admin-list h4 {
-    margin-top: 0;
-    text-align: center;
-    color: white; 
-    font-size: 24px;
-    margin-bottom: 20px;
-    background-color: rgb(31, 31, 132);
-    padding: 10px;
-    border-radius: 10px;
-  }
-  
-  .admin-list ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  .admin-list li {
-    padding: 10px 0;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  .admin-list h5 {
-    margin: 0;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-radius: 8px;
-    text-align: left;
-    font-weight: bold;
-    font-size: 18px;
-    color: rgb(31, 31, 132);
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-  }
-  
-  .admin-list a {
-    text-decoration: none;
-  }
+.admin-list h5 {
+  margin: 0;
+  padding: 0.625rem;
+  background-color: #f0f0f0;
+  border-radius: 0.5rem; /* 8px */
+  text-align: left;
+  font-weight: bold;
+  font-size: 1.125rem; /* 18px */
+  color: rgb(31, 31, 132);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.admin-list a {
+  text-decoration: none;
+}

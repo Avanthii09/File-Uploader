@@ -1,0 +1,100 @@
+
+.my-extend-container{
+    position: relative;
+    top: -40px;
+}
+
+
+.timelist {
+    position: relative;
+    top: 50px;
+    width:800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+  }
+
+  
+.timelist h3 {
+    margin-top: 0;
+    text-align: center;
+    color: white; 
+    font-size: 24px;
+    margin-bottom: 20px;
+    background-color: rgb(31, 31, 132);
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+.timelist ul {
+    list-style: none;
+    padding: 0;
+    width: 1200px;
+    margin-left: -200px;
+  }
+  
+  .timelist li {
+    padding: 10px 0; /* Reduced padding */
+    border-bottom: 1px solid #ccc;
+    width: 60%; /* Adjusted width */
+    margin: 0 auto; /* Center the list items horizontally */
+  }
+  
+  .timelist li:last-child {
+    border-bottom: none;
+  }
+
+
+  .timelist h5 {
+    margin: 0;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    text-align: left;
+    font-weight: bold;
+    color: rgb(31, 31, 132);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 700px; /* Full width */
+  }
+  
+  .timelist h5:hover {
+    background-color: #e0e0e0;
+  }
+  
+  
+.extend-button1,
+.extend-button2, 
+.extend-button3,
+.extend-button4 {
+    background-color: #1f1f84;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    position: relative;
+    bottom: 10px;
+    right: 0;
+    margin-right: 10px;
+    float: right; /* Float buttons to the right */
+    /* Adjusted margin-left to create space between buttons */
+    margin-left: 10px;
+}
+
+
+
+.backtoAdmin{
+    text-decoration: none;
+    color: rgb(31, 31, 132);
+    position: relative;
+    top: 120px;
+    left:330px;
+    font-weight: bold;
+    font-size: 20px;
+    
+
+}

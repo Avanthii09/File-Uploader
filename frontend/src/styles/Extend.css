@@ -1,0 +1,60 @@
+/* MyExtend.css */
+
+/* Style for the container */
+/* .my-extend-container {
+  padding: 1.25rem; 
+  position: relative;
+  top: -15.625rem; 
+} */
+
+.extension-container {
+  padding: 1.25rem; 
+  position: relative;
+  /* top: 6.25rem; */
+}
+
+/* Style for the quarter message */
+.selected-date-message {
+  position: relative;
+  top: 5.5rem;
+  /* left: 31.25rem; */
+  color: rgb(31, 31, 132);
+  font-size: 1.25rem;
+}
+
+/* Style for the MyDatePicker component */
+.date-picker-container {
+  margin-top: 2.5rem;
+}
+
+.heading {
+  position: relative;
+  top: -1.25rem;
+  left: 6.25rem;
+  color: rgb(31, 31, 132);
+}
+
+/* Style for the extend button */
+.extend-button {
+  background-color: rgb(31, 31, 132);
+  color: white;
+  padding: 0.625rem 1.25rem;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  top: 5.25rem;
+  left: 6.25rem;
+}
+
+.extend-button:hover {
+  background-color: rgb(52, 52, 165);
+}
+
+.backtoTE {
+  text-decoration: none;
+  color: rgb(52, 52, 165);
+  position: relative;
+  top: 7.5rem;
+  font-weight: bold;
+  left: 10rem;
+}
