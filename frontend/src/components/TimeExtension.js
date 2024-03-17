@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import MyNavBarLogout from "./NavBarLogout";
 import "../styles/TimeExtension.css";
@@ -9,7 +10,21 @@ function MyTimeExtension() {
     const [selectedQuarter, setSelectedQuarter] = useState(null); // State to store selected quarter
     const navigate = useNavigate();
 
-   
+    // const handleExtendClick = (quarter) => {
+    //     setExtendedQuarter(quarter);
+    //     setSelectedQuarter(quarter); // Set the selected quarter when extending
+    //     navigate("/Extend");
+    // }
+
+    useEffect(() => {
+        const accessToken = localStorage.getItem("accessToken");
+
+        if (!accessToken) {
+            // User is not logged in, redirect to "/"
+            navigate("/");
+        }
+    }, [navigate]);
+
     const handleExtendClick = (quarter) => {
         setExtendedQuarter(quarter);
         console.log(quarter)

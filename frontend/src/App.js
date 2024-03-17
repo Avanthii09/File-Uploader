@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Routes, Route, useNavigate, Navigate, useLocation} from "react-router-dom";
+import { Routes, Route, useNavigate, Navigate, useLocation } from "react-router-dom";
 import axios from "axios";
 import MyLogin from "./components/Login";
 import MyQuarterSelector from "./components/QuarterSelector";
@@ -27,14 +27,12 @@ function App() {
   const location = useLocation();
   const [fileList, setFileList] = useState([]);
   const accessToken = localStorage.getItem("accessToken");
+  const selectedQuarter = location.state?.selectedQuarter;
+
   const handleFileChange = (newFileList) => {
     setFileList(newFileList);
   };
-  
-  // const [user, setUser] = useState({
-  //   isLoggedIn: false,
-  //   role: "",
-  // });
+
 
   // Function to store JWT in localStorage
   const storeJWT = (token) => {
@@ -42,6 +40,48 @@ function App() {
   };
 
   // Function to handle login
+  // const handleLogin = async (email, password, role) => {
+  //   try {
+  //     let loginEndpoint;
+
+  //     if (email === "adminPSG@gmail.com") {
+  //       loginEndpoint = "/admin/login";
+  //     } else {
+  //       loginEndpoint = "/user/login";
+  //     }
+
+  //     const response = await api.post(loginEndpoint, {
+  //       email: email,
+  //       password: password,
+  //     });
+
+  //     const { access_token, role } = response.data;
+  //     console.log("Role:", role);
+
+  //     if (access_token) {
+  //       console.log("Role:", role); // Debug: Check the role
+  //       storeJWT(access_token);
+  //       // setUser({ isLoggedIn: true, role: role });
+  //       setIsLoggedIn(true);
+  //       setUserRole(role);
+
+  //       // Redirect based on successful login
+  //       if (role === "Admin") {
+  //         navigate("/Admin");
+  //       } else if (role === "Section") {
+  //         navigate("/QuarterSelector"); // Redirect to Section landing page
+  //       } else if (role === "Principal_PA") {
+  //         navigate("/QuarterSelector"); // Redirect to Principal PA landing page
+  //       }
+  //       return true; // Indicate successful login
+  //     }
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+
+  //   return false; // Indicate login failure
+  // };
+
   const handleLogin = async (email, password, role) => {
     try {
       let loginEndpoint;
@@ -50,6 +90,17 @@ function App() {
         loginEndpoint = "/admin/login";
       } else {
         loginEndpoint = "/user/login";
+      }
+
+      // Check if the user is already logged in
+      if (isLoggedIn) {
+        // Redirect to the appropriate page based on the role
+        if (role === "Admin") {
+          navigate("/Admin");
+        } else if (role === "Section" || role === "Principal_PA") {
+          navigate("/QuarterSelector");
+        }
+        return true; // Indicate successful login
       }
 
       const response = await api.post(loginEndpoint, {
@@ -70,12 +121,13 @@ function App() {
         // Redirect based on successful login
         if (role === "Admin") {
           navigate("/Admin");
-        } else if (role === "Section") {
-          navigate("/QuarterSelector"); // Redirect to Section landing page
-        } else if (role === "Principal_PA") {
-          navigate("/QuarterSelector"); // Redirect to Principal PA landing page
+        } else if (role === "Section" || role === "Principal_PA") {
+          navigate("/QuarterSelector"); // Redirect to Section or Principal PA landing page
         }
         return true; // Indicate successful login
+      } else {
+        // User is not logged in, redirect to home page
+        navigate("/");
       }
     } catch (error) {
       console.error(error);
@@ -83,6 +135,7 @@ function App() {
 
     return false; // Indicate login failure
   };
+
 
   const handleLogout = () => {
     localStorage.removeItem("accessToken");
@@ -93,15 +146,15 @@ function App() {
   };
 
   return (
-   
+
     <div className="App">
       {isLoggedIn ? (
-        <MyNavBarLogout handleLogout={handleLogout}/>
+        <MyNavBarLogout handleLogout={handleLogout} />
       ) : (
         <MyNavBar />
       )}
       <Routes>
-      <Route
+        <Route
           path="/"
           element={
             isLoggedIn ? (
@@ -114,21 +167,35 @@ function App() {
 
         {/* <Route path="/Admin" element={<MyAdmin />} /> */}
         <Route path="/Admin" element={<MyAdmin setIsLoggedIn={setIsLoggedIn} setUserRole={setUserRole} />} />
-        <Route path="/QuarterSelector" element={<MyQuarterSelector setIsLoggedIn={setIsLoggedIn} setUserRole={setUserRole} />} />
+        <Route path="/QuarterSelector" element={<MyQuarterSelector setIsLoggedIn={setIsLoggedIn} setUserRole={setUserRole} isLoggedIn={isLoggedIn} />} />
         {/* <Route path="/QuarterSelector" element={<MyQuarterSelector  />}  />       */}
         <Route path="/Adduser" element={<MyAdduser />} />
-        <Route path="/TimeExtension" element={<MyTimeExtension />} />
-        <Route path="/Extend" element={<MyExtend/>} />
-        <Route path="/DownloadQuarters" element={<MyDownloadQuarters/> } />
+        {/* <Route path="/TimeExtension" element={<MyTimeExtension setIsLoggedIn={setIsLoggedIn} />} /> */}
+        <Route path="/TimeExtension" element={<MyTimeExtension setIsLoggedIn={setIsLoggedIn} setUserRole={setUserRole} />} />
+
+
+ 
+        <Route path="/Extend" element={<MyExtend />} />
+        <Route path="/DownloadQuarters" element={<MyDownloadQuarters />} />
         <Route path="/PendingList/:quarter" element={<MyPendingList />} />
-        <Route path="/ModifyOrder" element={<ModifyOrder/>} />
+        <Route path="/ModifyOrder" element={<ModifyOrder />} />
         {/* <Route path="/Download" element={<PrincipalPDFDownload />} /> */}
-        <Route
+        {/* <Route
         path="/Upload"
         element={
           <MyUpload
             onFileChange={handleFileChange}
-                     /> } />
+                     /> } /> */}
+        <Route
+          path="/Upload"
+          element={
+            <MyUpload
+              onFileChange={handleFileChange}
+              isLoggedIn={isLoggedIn} // Pass the isLoggedIn prop
+            />
+          }
+        />
+
         <Route path="/unuploaded/:quarter" component={UnuploadedUsers} />
       </Routes>
 
@@ -141,9 +208,9 @@ function LoggedInRoutes({ userRole }) {
     return <Navigate to="/QuarterSelector" />;
   } else if (userRole === "Principal_PA") {
     return <Navigate to="/QuarterSelector" />;
-  }else if (userRole === "Admin") {
-    return <Navigate to="/Admin" />; 
-  }else {
+  } else if (userRole === "Admin") {
+    return <Navigate to="/Admin" />;
+  } else {
     // Handle other user roles or cases
     return <Navigate to="/" />;
   }

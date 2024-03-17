@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import '../styles/QuarterSelector.css';
 import MyNavBarLogout from "./NavBarLogout";
 
+
 const quarterRanges = [
     { quarter: 1, months: "January - March" },
     { quarter: 2, months: "April - June" },
@@ -11,17 +12,26 @@ const quarterRanges = [
     { quarter: 4, months: "October - December" },
 ];
 
-function MyQuarterSelector({ setIsLoggedIn, setUserRole }) {
+function MyQuarterSelector({ setIsLoggedIn, setUserRole, isLoggedIn }) {
     const navigate = useNavigate();
     const [quarterEndDates, setQuarterEndDates] = useState({});
+    
 
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth() + 1; // Months are zero-indexed
     const currentDay = currentDate.getDate();
 
+    // useEffect(() => {
+    //     fetchEndDates();
+    // }, []);
+
     useEffect(() => {
-        fetchEndDates();
-    }, []);
+        if (!isLoggedIn) {
+            navigate("/");
+        } else {
+            fetchEndDates(); // Only fetch end dates if the user is logged in
+        }
+    }, [isLoggedIn, navigate]);
 
     const handleLogout = async () => {
         // Clear local storage and update state
@@ -38,7 +48,10 @@ function MyQuarterSelector({ setIsLoggedIn, setUserRole }) {
     };
 
      // Redirect to homepage when not logged in
-
+     if (!isLoggedIn) {
+        navigate("/");
+        return null; // Optionally, you can return null or a message indicating redirection.
+    }
 
     const fetchEndDates = async () => {
         console.log("Fetching end dates...");

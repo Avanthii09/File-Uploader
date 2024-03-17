@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 import MyNavBarLogout from "./NavBarLogout";
 import { Link } from "react-router-dom";
@@ -15,6 +15,17 @@ function MyDownloadQuarters() {
     navigate(`/PendingList/${quarter}`);
   };
 
+
+  const accessToken = localStorage.getItem("accessToken");
+
+  useEffect(() => {
+
+    if (!accessToken) {
+      // User is not logged in, redirect to "/"
+      navigate("/");
+    }
+  }, [navigate]);
+
   const quarterInfo = [
     { quarter: 1, label: "Quarter 1 (Jan-Mar)" },
     { quarter: 2, label: "Quarter 2 (Apr-Jun)" },
@@ -22,6 +33,7 @@ function MyDownloadQuarters() {
     { quarter: 4, label: "Quarter 4 (Oct-Dec)" },
   ];
 
+  
   return (
     <div className="pdf-download">
       <MyNavBarLogout handleLogout={handleLogout} />

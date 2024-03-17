@@ -1,6 +1,6 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import MyNavBar from "./NavBar";
 import "../styles/Upload.css";
 import axios from "axios";
@@ -11,7 +11,8 @@ import uploadImg from "../assets/cloud-computing-g572aff4db_1280.png";
 const MyUpload = (props) => {
   const location = useLocation();
   const selectedQuarter = location.state?.selectedQuarter;
-  
+  const navigate = useNavigate(); // Get the navigate function from react-router-dom
+
   const wrapperRef = useRef(null);
 
   const [fileList, setFileList] = useState([]);
@@ -27,16 +28,15 @@ const MyUpload = (props) => {
   const onFileDrop = (e) => {
     const newFile = e.target.files[0];
     if (newFile) {
-        if (newFile.type === "application/pdf") {
-            const updatedList = [...fileList, newFile];
-            setFileList(updatedList);
-            props.onFileChange(updatedList);
-        } else {
-            alert("Upload only PDF files.");
-        }
+      if (newFile.type === "application/pdf") {
+        const updatedList = [...fileList, newFile];
+        setFileList(updatedList);
+        props.onFileChange(updatedList);
+      } else {
+        alert("Upload only PDF files.");
+      }
     }
-};
-
+  };
 
   const fileRemove = (file) => {
     const updatedList = [...fileList];
@@ -45,30 +45,41 @@ const MyUpload = (props) => {
     props.onFileChange(updatedList);
   };
 
-  // const [showAlert, setShowAlert] = useState(false);
   const handleUploadClick = async () => {
-    /*try {*/
-      setIsUploading(true);
-  
-      const formData = new FormData();
-      fileList.forEach((file) => {
-        formData.append("files", file);
-      });
-  
-      const accessToken = props.accessToken;
-      axios.put(
+    setIsUploading(true);
+
+    const formData = new FormData();
+    fileList.forEach((file) => {
+      formData.append("files", file);
+    });
+
+    const accessToken = props.accessToken;
+    axios
+      .put(
         `http://127.0.0.1:8000/user/upload_pdf/quarter${selectedQuarter}`,
-        formData,{ headers: {
+        formData,
+        {
+          headers: {
             "Content-Type": "multipart/form-data",
             Authorization: `Bearer ${accessToken}`,
-          }}).then(function(response){
-            alert("Uploaded successfully");
-            console.log(response)
-        })
-}
+          },
+        }
+      )
+      .then(function (response) {
+        alert("Uploaded successfully");
+        console.log(response);
+      });
+  };
+
+  useEffect(() => {
+    if (!props.isLoggedIn) {
+      
+      navigate("/");
+    }
+  }, [props.isLoggedIn, navigate]);
+
   return (
     <>
-      {/* <MyNavBarLogout handleLogout={handleLogout} /> */}
       <MyNavBar />
       <div
         ref={wrapperRef}
@@ -83,8 +94,10 @@ const MyUpload = (props) => {
         </div>
         <input type="file" value="" onChange={onFileDrop} accept=".pdf" />
       </div>
+
       {fileList.length > 0 ? (
         <div className="drop-file-preview">
+
           {fileList.map((item, index) => (
             <div key={index} className="drop-file-preview__item">
               <img
@@ -102,7 +115,7 @@ const MyUpload = (props) => {
                 className="drop-file-preview__item__del"
                 onClick={() => fileRemove(item)}
               >
-                
+
               </span>
             </div>
           ))}
@@ -110,30 +123,27 @@ const MyUpload = (props) => {
       ) : null}
       <div>
         <button
-          className={`upload-button ${
-            fileList.length === 0 ? "upload-button-disabled" : ""
-          }`}
+          className={`upload-button ${fileList.length === 0 ? "upload-button-disabled" : ""
+            }`}
           onClick={handleUploadClick}
           disabled={fileList.length === 0}
         >
           UPLOAD
         </button>
         <div className='back-to-qs'>
-
-           <Link to='/QuarterSelector'>Back to Quarter Selecter </Link>
-       </div>
-
-
+          <Link to='/QuarterSelector'>Back to Quarter Selector</Link>
+        </div>
       </div>
     </>
   );
 };
 
-
 MyUpload.propTypes = {
-    onFileChange: PropTypes.func,
-    accessToken: PropTypes.string,
-    selectedQuarter: PropTypes.number,
+  onFileChange: PropTypes.func,
+  accessToken: PropTypes.string,
+  selectedQuarter: PropTypes.number,
+  isLoggedIn: PropTypes.bool, // Add isLoggedIn as a prop
 };
 
-export default MyUpload
+export default MyUpload;
+

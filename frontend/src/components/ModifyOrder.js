@@ -17,6 +17,17 @@ function ModifyOrder() {
     fetchUsers();
   }, []);
 
+  const accessToken = localStorage.getItem("accessToken");
+
+  useEffect(() => {
+
+    if (!accessToken) {
+      // User is not logged in, redirect to "/"
+      navigate("/");
+    }
+  }, [navigate]);
+
+
   const fetchUsers = async () => {
     try {
       const response = await axios.get("http://127.0.0.1:8000/display_users", {
